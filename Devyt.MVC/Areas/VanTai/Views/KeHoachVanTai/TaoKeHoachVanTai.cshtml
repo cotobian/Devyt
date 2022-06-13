@@ -1,0 +1,64 @@
+﻿@model Devyt.Models.VanTai_KeHoachVanTai
+@{
+    ViewBag.Title = "Tạo mới Kế hoạch vận tải";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Thông tin Kế hoạch vận tải</h2>
+
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            @using (Html.BeginForm("TaoKeHoachVanTai", "KeHoachVanTai", FormMethod.Post))
+            {
+                <div class="form-group">
+                    <label class="control-label">Số Bill/Booking</label>
+                    @Html.EditorFor(model => model.BillBook, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Khách hàng</label>
+                    @Html.DropDownListFor(model => model.KhachHangId, new SelectList(ViewBag.KhachHangList, "Id", "TenKhachHang"), "-- Chọn Khách hàng --", new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Ngày hết hạn</label>
+                    @Html.EditorFor(model => model.NgayHoanTat, new { htmlAttributes = new { @class = "form-control datefield" } })
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Điểm đi</label>
+                    @Html.DropDownListFor(model => model.DiemDiId, new SelectList(ViewBag.DiaDiemList, "Id", "TenDiaDiem"), "-- Chọn điểm đi --", new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Điểm đến</label>
+                    @Html.DropDownListFor(model => model.DiemDenId, new SelectList(ViewBag.DiaDiemList, "Id", "TenDiaDiem"), "-- Chọn điểm đến --", new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Loại hàng</label>
+                    @Html.DropDownListFor(model => model.LoaiHangId, new SelectList(ViewBag.LoaiHangList, "Id", "TenLoaiHang"), "-- Chọn Loại hàng --", new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Mặt hàng</label>
+                    @Html.EditorFor(model => model.MatHang, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Người liên lạc</label>
+                    @Html.EditorFor(model => model.NguoiLienLac, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Ghi chú</label>
+                    @Html.EditorFor(model => model.GhiChu, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Tạo mới" class="btn btn-success" />
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $(".datefield").datepicker({
+            dateFormat: 'dd/mm/yy'
+        });
+    });
+</script>

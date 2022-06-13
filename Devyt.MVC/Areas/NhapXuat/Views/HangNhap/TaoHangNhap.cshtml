@@ -1,0 +1,51 @@
+﻿@model Devyt.Models.NhapXuat_HangNhap
+@{
+    ViewBag.Title = "Tạo mới hàng nhập";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Thông tin Hàng nhập</h2>
+
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            @using (Html.BeginForm("TaoHangNhap", "HangNhap", FormMethod.Post ))
+            {
+                @*@Html.HiddenFor(model => model.Id)*@
+                @Html.HiddenFor(model => model.LoHangId, new { htmlAttributes = new { @id = "lohangid" }} )
+                <div class="form-group">
+                    <label class="control-label">Tên hàng</label>
+                    @Html.EditorFor(model => model.TenHang, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Số kiện</label>
+                    @Html.EditorFor(model => model.SoKien, new { htmlAttributes = new { @class = "form-control", @type = "number", @min = "0", @step = "1" }})
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Số Cont nhập</label>
+                    @Html.EditorFor(model => model.SoContNhap, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Ngày nhập</label>
+                    @Html.EditorFor(model => model.NgayNhap, new { htmlAttributes = new { @class = "form-control datefield" } })
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Xuất xứ</label>
+                    @Html.EditorFor(model => model.XuatXu, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Tạo mới" class="btn btn-success" />
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $(".datefield").datepicker({
+            dateFormat: 'dd/mm/yy'
+        });
+        $("#lohangid").val(@ViewBag.LoHangId);
+    });
+</script>

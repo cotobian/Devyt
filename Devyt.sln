@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devyt.Tests", "Devyt.Tests\Devyt.Tests.csproj", "{E9C780BA-FA2C-4085-BCC0-D68E6A1A7AC7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devyt.Models", "Devyt.Models\Devyt.Models.csproj", "{467A8B2E-20D0-428D-A67B-AE60B703D203}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devyt.Infrastructure", "Devyt.Infrastructure\Devyt.Infrastructure.csproj", "{B54E799F-3338-40B5-A027-436AF10D8B43}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devyt.MVC", "Devyt.MVC\Devyt.MVC.csproj", "{99B72EDA-CA1E-4BF6-89EE-CABD3A684991}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E9C780BA-FA2C-4085-BCC0-D68E6A1A7AC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9C780BA-FA2C-4085-BCC0-D68E6A1A7AC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9C780BA-FA2C-4085-BCC0-D68E6A1A7AC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9C780BA-FA2C-4085-BCC0-D68E6A1A7AC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{467A8B2E-20D0-428D-A67B-AE60B703D203}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{467A8B2E-20D0-428D-A67B-AE60B703D203}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{467A8B2E-20D0-428D-A67B-AE60B703D203}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{467A8B2E-20D0-428D-A67B-AE60B703D203}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B54E799F-3338-40B5-A027-436AF10D8B43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B54E799F-3338-40B5-A027-436AF10D8B43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B54E799F-3338-40B5-A027-436AF10D8B43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B54E799F-3338-40B5-A027-436AF10D8B43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99B72EDA-CA1E-4BF6-89EE-CABD3A684991}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99B72EDA-CA1E-4BF6-89EE-CABD3A684991}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99B72EDA-CA1E-4BF6-89EE-CABD3A684991}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99B72EDA-CA1E-4BF6-89EE-CABD3A684991}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,47 @@
+﻿@model Devyt.Models.DanhMuc_TaiXe
+@{
+    Layout = null;
+}
+
+@using (Html.BeginForm("AddOrEdit", "TaiXe", FormMethod.Post, new { onsubmit = "return SubmitForm(this)" }))
+{
+    @Html.HiddenFor(model => model.Id)
+    <div class="form-group">
+        <label class="control-label">Tên Tài xế</label>
+        @Html.EditorFor(model => model.TenLaiXe, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+    <div class="form-group">
+        <label class="control-label">Số điện thoại</label>
+        @Html.EditorFor(model => model.SoDienThoai, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+    <div class="form-group">
+        <label class="control-label">Giấy phép lái xe</label>
+        @Html.EditorFor(model => model.GPLX, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+    <div class="form-group">
+        <label class="control-label">Ngày cấp</label>
+        @Html.EditorFor(model => model.NgayCap, new { htmlAttributes = new { @class = "form-control datefield" } })
+    </div>
+    <div class="form-group">
+        <label class="control-label">Ngày hết hạn</label>
+        @Html.EditorFor(model => model.NgayHetHan, new { htmlAttributes = new { @class = "form-control datefield" } })
+    </div>
+    <div class="form-group">
+        <label class="control-label">CMND</label>
+        @Html.EditorFor(model => model.CMND, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+    <div class="form-group">
+        <label class="control-label">Ngày sinh</label>
+        @Html.EditorFor(model => model.NgaySinh, new { htmlAttributes = new { @class = "form-control datefield" } })
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Cập nhật" class="btn btn-primary" />
+    </div>
+}
+<script>
+    $(document).ready(function () {
+        $(".datefield").datepicker({
+            dateFormat: 'dd/mm/yy'
+        });
+    });
+</script>

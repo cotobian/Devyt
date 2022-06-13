@@ -1,0 +1,174 @@
+﻿@model Devyt.Models.VanTai_ChuyenDieuVan
+@{
+    ViewBag.Title = "Tạo chuyến vận chuyển";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Tạo chuyến vận chuyển</h2>
+
+<div class="container-fluid">
+    <div class="col-lg-7 col-md-7 col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b><i>Lệnh vận chuyển</i></b>
+            </div>
+            <div class="panel-body" style="overflow-y:auto">
+                <div class="container-fluid">
+                    <table id="orderTable" class="table table-striped table-bordered" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Bill/Booking</th>
+                                <th>Loại hàng</th>
+                                <th>Điểm lấy hàng</th>
+                                <th>Điểm trả hàng</th>
+                                <th>Gán xe</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-5 col-md-5 col-xs-12">
+        
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b><i>Thông tin chuyến</i></b>
+            </div>
+            <div class="panel-body">
+                @using (Html.BeginForm("TaoChuyenMoi", "ChuyenDieuVan", FormMethod.Post, new { onsubmit = "return SubmitForm(this)" }))
+                {
+                    <input type="hidden" id="id1" name="id1" />
+                    <input type="hidden" id="id2" name="id2" />
+                    <div class="form-group">
+                        <label class="control-label">Số xe</label>
+                        @Html.DropDownListFor(model => model.XeVanTaiId, new SelectList(ViewBag.XeVanTaiList, "Id", "SoXe"), "-- Chọn xe --", new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Tài xế</label>
+                        @Html.DropDownListFor(model => model.TaiXeId, new SelectList(ViewBag.TaiXeList, "Id", "TenLaiXe"), "-- Chọn tài xế --", new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Rơ mooc</label>
+                        @Html.DropDownListFor(model => model.RoMoocId, new SelectList(ViewBag.RomoocList, "Id", "SoRoMooc"), "-- Chọn rơ mooc --", new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Số lệnh 1</label>
+                        <input type="text" class="form-control" id="solenh1" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Số cont 1</label>
+                        @Html.EditorFor(model => model.SoCont1, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Số lệnh 2</label>
+                        <input type="text" class="form-control" id="solenh2" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Số cont 2</label>
+                        @Html.EditorFor(model => model.SoCont2, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Tạo chuyến" class="btn btn-success" /> 
+                        <input type="reset" value="Hủy" class="btn btn-success" style="background-color:red;border-color: red" />
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            dataTable = $("#orderTable").DataTable({
+                "ajax": {
+                    "url": "/ChuyenDieuVan/GetLenhVanChuyenKhoiTao",
+                    "type": "GET",
+                    "datatype": "json",
+                },
+                "columns": [
+                    { "data": "BookBill" },
+                    { "data": "LoaiHang" },
+                    { "data": "DiemLayHang" },
+                    { "data": "DiemTraHang" },
+                    {
+                        "data": "Id", "render": function (data) {
+                            return "<i class='fa fa-sign-out f-20 text-primary' onclick=GanXe(" + data + ")></i>";
+                        },
+                        "orderable": false,
+                        "searchable": false,
+                        "width": "10px",
+                        "className": 'text-center'
+                    }
+                ]
+            });
+        });
+
+        $('input[type=reset]').click(function () {
+            $("#id1").val("");
+            $("#id2").val("");
+        })
+
+        function GanXe(id)
+        {
+            if ($("#id1").val() == id || $("#id2").val() == id)
+            {
+                $.notify("Lệnh đã ghi nhận!", {
+                    globalPosition: "top center",
+                    className: "error"
+                });
+                return;
+            }
+            if ($("#id1").val() != "" && $("#id2").val() != "")
+            {
+                $.notify("Đã ghi nhận đủ 2 lệnh!", {
+                    globalPosition: "top center",
+                    className: "error"
+                });
+                return;
+            }
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("GetSoLenhChuaGan", "KeHoachVanTai")/' + id,
+                success: function (data) {
+                    if ($("#solenh1").val() == "") {
+                        $("#solenh1").val(data.data);
+                        $("#id1").val(id);
+                    }
+                    else {
+                        $("#solenh2").val(data.data);
+                        $("#id2").val(id);
+                    }
+                }
+            });
+        }
+
+        function SubmitForm(form) {
+            $.ajax({
+                type: "POST",
+                url: form.action,
+                data: $(form).serialize(),
+                success: function (data) {
+                    if (data.success) {
+                        dataTable.ajax.reload();
+                        $.notify(data.message, {
+                            globalPosition: "top center",
+                            className: "success"
+                        })
+                    }
+                    else {
+                        dataTable.ajax.reload();
+                        $.notify(data.message, {
+                            globalPosition: "top center",
+                            className: "error"
+                        })
+                    }
+                }
+            });
+            form.reset();
+            $("#id1").val("");
+            $("#id2").val("");
+            return false;
+        }
+    </script>
+}

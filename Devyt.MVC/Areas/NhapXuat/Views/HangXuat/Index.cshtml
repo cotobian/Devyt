@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewBag.Title = "Danh sách Hàng xuất";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3>Danh sách Hàng xuất</h3>
+    </div>
+    <div class="card-body">
+        <div class="container-fluid">
+            <table id="truckTable" class="table table-striped table-bordered" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Số tờ khai nhập</th>
+                        <th>Số tờ khai xuất</th>
+                        <th>Số kiện</th>
+                        <th>Số Cont xuất</th>
+                        <th>Ngày xuất</th>
+                        <th>Trạng thái</th>
+                        <th>Xóa</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        var Popup, dataTable;
+        $(document).ready(function () {
+            dataTable = $("#truckTable").DataTable({
+                "ajax": {
+                    "url": "/HangXuat/GetHangXuat",
+                    "type": "GET",
+                    "datatype": "json",
+                },
+                "columns": [
+                    { "data": "ToKhaiNhap" },
+                    { "data": "SoToKhai" },
+                    { "data": "SoKien" },
+                    { "data": "SoContXuat" },
+                    { "data": "NgayXuatText" },
+                    { "data": "TrangThaiText" },
+                    {
+                        "data": "Id", "render": function (data) {
+                            return "<i class='fa fa-trash f-20 text-danger' onclick=Delete(" + data + ")></i>";
+                        },
+                        "orderable": false,
+                        "searchable": false,
+                        "width": "10px",
+                        "className": 'text-center'
+                    }
+                ]
+            });
+        });
+
+        function Delete(id)
+        {
+            if (confirm("Bạn có muốn xóa Hàng xuất này không?"))
+            {
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("Delete", "HangXuat")/' + id,
+                    success: function (data) {
+                        if (data.success) {
+                            dataTable.ajax.reload();
+                            $.notify(data.message, {
+                                globalPosition: "top center",
+                                className: "success"
+                            })
+                        }
+                        else {
+                            Popup.dialog('close');
+                            dataTable.ajax.reload();
+                            $.notify(data.message, {
+                                globalPosition: "top center",
+                                className: "error"
+                            })
+                        }
+                    }
+                });
+            }
+        }
+    </script>
+}
+

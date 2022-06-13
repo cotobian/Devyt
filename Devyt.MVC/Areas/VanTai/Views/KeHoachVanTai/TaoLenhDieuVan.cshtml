@@ -1,0 +1,68 @@
+﻿@model Devyt.Models.VanTai_LenhVanChuyen
+@{
+    ViewBag.Title = "Tạo mới Lệnh điều vận";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Thông tin Lệnh điều vận</h2>
+
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            @using (Html.BeginForm("TaoLenhDieuVan", "LenhDieuVan", FormMethod.Post))
+            {
+                <div class="form-group">
+                    <label class="control-label">Số Bill</label>
+                    @Html.EditorFor(model => model.Bill, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Số Booking</label>
+                    @Html.EditorFor(model => model.Booking, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Khách hàng</label>
+                    @Html.DropDownListFor(model => model.KhachHangId, new SelectList(ViewBag.KhachHangList, "Id", "TenKhachHang"), "-- Chọn Khách hàng --", new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Ngày vận chuyển</label>
+                    @Html.EditorFor(model => model.NgayVanChuyen, new { htmlAttributes = new { @class = "form-control datefield" } })
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Ngày hết hạn</label>
+                    @Html.EditorFor(model => model.NgayHetHan, new { htmlAttributes = new { @class = "form-control datefield" } })
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Điểm lấy hàng</label>
+                    @Html.EditorFor(model => model.DiemLayHang, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Điểm trả hàng</label>
+                    @Html.EditorFor(model => model.DiemTraHang, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Loại hàng</label>
+                    @Html.EditorFor(model => model.LoaiHang, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Người liên lạc</label>
+                    @Html.EditorFor(model => model.NguoiLienLac, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Ghi chú</label>
+                    @Html.EditorFor(model => model.GhiChu, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Tạo mới" class="btn btn-success" />
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $(".datefield").datepicker({
+            dateFormat: 'dd/mm/yy'
+        });
+    });
+</script>

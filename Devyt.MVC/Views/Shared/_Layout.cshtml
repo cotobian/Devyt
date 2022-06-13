@@ -1,0 +1,169 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="~/Scripts/jquery-1.12.4.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="~/Scripts/popper.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/main.js"></script>
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/image/untitled_OXe_icon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <script src="~/Scripts/notify.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css" />
+    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="wrapper d-flex align-items-stretch">
+        <nav id="sidebar">
+            <div class="p-4">
+                <a href="/Index/Index" class="img logo mb-5"></a>
+                <ul class="list-unstyled components mb-5">
+                    <li id="dashboard" class="menu-li">
+                        <a href="/Dashboard/Index"><i class="fa fa-tachometer"></i> Dashboard</a>
+                    </li>
+                    <li id="quantri" class="menu-li">
+                        <ul class="sub-menu">
+                            <li><a href="/Admin/PhanQuyen">Phân quyền</a></li>
+                            <li><a href="/Admin/ChiNhanh">Chi nhánh</a></li>
+                            <li><a href="/Admin/Kho">Kho</a></li>
+                            <li><a href="/Admin/PhongBan">Phòng ban</a></li>
+                            <li><a href="/Admin/TaiKhoan">Tài khoản</a></li>
+                            <li><a href="/Admin/ViTriKho">Vị trí kho</a></li>
+                        </ul>
+                        <a href="#adminSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-folder-open"></i> Quản trị Hệ thống</a>
+                        <ul class="collapse list-unstyled" id="adminSubmenu">
+                            <li><a href="/Admin/PhanQuyen">Phân quyền</a></li>
+                            <li><a href="/Admin/ChiNhanh">Chi nhánh</a></li>
+                            <li><a href="/Admin/Kho">Kho</a></li>
+                            <li><a href="/Admin/PhongBan">Phòng ban</a></li>
+                            <li><a href="/Admin/TaiKhoan">Tài khoản</a></li>
+                            <li><a href="/Admin/ViTriKho">Vị trí kho</a></li>
+                        </ul>
+                    </li>
+                    <li id="danhmuc" class="menu-li">
+                        <ul class="sub-menu">
+                            <li><a href="/DanhMuc/DonViTinh">Đơn vị tính</a></li>
+                            <li><a href="/DanhMuc/LoaiHang">Loại hàng</a></li>
+                            <li><a href="/DanhMuc/KhachHang">Khách hàng</a></li>
+                            <li><a href="/DanhMuc/NhaXuatNhapKhau">Nhà Xuất nhập khẩu</a></li>
+                            <li><a href="/DanhMuc/DiaDiem">Địa điểm</a></li>
+                            <li><a href="/DanhMuc/XeVanTai">Xe vận tải</a></li>
+                            <li><a href="/DanhMuc/TaiXe">Tài xế</a></li>
+                        </ul>
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-folder-open"></i> Quản lý Danh mục</a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li><a href="/DanhMuc/DonViTinh">Đơn vị tính</a></li>
+                            <li><a href="/DanhMuc/LoaiHang">Loại hàng</a></li>
+                            <li><a href="/DanhMuc/KhachHang">Khách hàng</a></li>
+                            <li><a href="/DanhMuc/NhaXuatNhapKhau">Nhà Xuất nhập khẩu</a></li>
+                            <li><a href="/DanhMuc/DiaDiem">Địa điểm</a></li>
+                            <li><a href="/DanhMuc/XeVanTai">Xe vận tải</a></li>
+                            <li><a href="/DanhMuc/TaiXe">Tài xế</a></li>
+                        </ul>
+                    </li>
+                    <li id="kho" class="menu-li">
+                        <ul class="sub-menu">
+                            <li><a href="/NhapXuat/LoHang/TaoLoHang">Tạo mới Lô hàng</a></li>
+                            <li><a href="/NhapXuat/LoHang">Quản lý Lô hàng</a></li>
+                            <li><a href="/NhapXuat/HangNhap">Quản lý Hàng nhập</a></li>
+                            <li><a href="/NhapXuat/HangXuat">Quản lý Hàng xuất</a></li>
+                        </ul>
+                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-industry"></i> Quản lý kho</a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu">
+                            <li><a href="/NhapXuat/LoHang/TaoLoHang">Tạo mới Lô hàng</a></li>
+                            <li><a href="/NhapXuat/LoHang">Quản lý Lô hàng</a></li>
+                            <li><a href="/NhapXuat/HangNhap">Quản lý Hàng nhập</a></li>
+                            <li><a href="/NhapXuat/HangXuat">Quản lý Hàng xuất</a></li>
+                        </ul>
+                    </li>
+                    <li id="vantai" class="menu-li">
+                        <ul class="sub-menu">
+                            <li><a href="/VanTai/KeHoachVanTai/TaoKeHoachVanTai">Tạo mới Kế hoạch</a></li>
+                            <li><a href="/VanTai/KeHoachVanTai">Quản lý Kế hoạch</a></li>
+                            <li><a href="/VanTai/ChuyenDieuVan/TaoChuyenMoi">Tạo mới Chuyến vận tải</a></li>
+                            <li><a href="/VanTai/ChuyenDieuVan">Quản lý Chuyến vận tải</a></li>
+                        </ul>
+                        <a href="#truckSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-truck"></i> Quản lý Vận tải</a>
+                        <ul class="collapse list-unstyled" id="truckSubmenu">
+                            <li><a href="/VanTai/KeHoachVanTai/TaoKeHoachVanTai">Tạo mới Kế hoạch</a></li>
+                            <li><a href="/VanTai/KeHoachVanTai">Quản lý Kế hoạch</a></li>
+                            <li><a href="/VanTai/ChuyenDieuVan/TaoChuyenMoi">Tạo mới Chuyến vận tải</a></li>
+                            <li><a href="/VanTai/ChuyenDieuVan">Quản lý Chuyến vận tải</a></li>
+                        </ul>
+                    </li>
+                    <li id="baocao" class="menu-li">
+                        <ul class="sub-menu">
+                            <li><a href="/Report/TonKho">Báo cáo tồn kho</a></li>
+                            <li><a href="/Report/NhapXuatKho">Báo cáo Nhập xuất kho</a></li>
+                        </ul>
+                        <a href="#reportSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-truck"></i> Báo cáo</a>
+                        <ul class="collapse list-unstyled" id="reportSubmenu">
+                            <li><a href="/Report/BaoCaoTonKho">Báo cáo tồn kho</a></li>
+                            <li><a href="/Report/NhapXuatKho">Báo cáo Nhập xuất kho</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="footer">
+                    <p style="text-align:center;">
+                        Copyright &copy;
+                        @DateTime.Now.Year Devyt Logistics
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Content  -->
+        <div class="container-fluid" id="content-wrapper">
+            <div id="content" class="p-md-5">
+                <nav class="navbar navbar-expand-lg navbar-dark">
+                    <div class="container-fluid">
+                        <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                            <i class="fa fa-bars"></i>
+                            <span class="sr-only">Toggle Menu</span>
+                        </button>
+                        <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="nav navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/Index/Index">Trang chủ</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Thông tin</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/Login/LogOut">Đăng Xuất</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="container-fluid" id="body_content">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div>
+    @RenderSection("scripts", required: false)
+    <script>
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+        });
+        function alertError() {
+
+        }
+    </script>
+</body>
+</html>
