@@ -1,0 +1,45 @@
+﻿@model Devyt.Models.NhapXuat_HangXuat
+@{
+    ViewBag.Title = "Tạo mới Hàng xuất";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Thông tin Hàng xuất</h2>
+
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            @using (Html.BeginForm("TaoHangXuat", "HangXuat", FormMethod.Post))
+            {
+                @Html.HiddenFor(model => model.HangNhapId, new { htmlAttributes = new { @id = "lohangid" } })
+                <div class="form-group">
+                    <label class="control-label">Số tờ khai</label>
+                    @Html.EditorFor(model => model.SoToKhai, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Số kiện</label>
+                    @Html.EditorFor(model => model.SoKien, new { htmlAttributes = new { @class = "form-control", @type = "number", @min = "0", @step = "1" } })
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Số Cont xuất</label>
+                    @Html.EditorFor(model => model.SoContXuat, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Ngày xuất</label>
+                    @Html.EditorFor(model => model.NgayXuat, new { htmlAttributes = new { @class = "form-control datefield" } })
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Tạo mới" class="btn btn-success" />
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $(".datefield").datepicker({
+            dateFormat: 'dd/mm/yy'
+        });
+        $("#lohangid").val(@ViewBag.HangNhapId);
+    });
+</script>

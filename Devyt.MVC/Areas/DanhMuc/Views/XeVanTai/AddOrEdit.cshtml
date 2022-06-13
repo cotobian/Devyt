@@ -1,0 +1,27 @@
+﻿@model Devyt.Models.DanhMuc_XeVanTai
+@{
+    Layout = null;
+}
+
+@using (Html.BeginForm("AddOrEdit", "XeVanTai", FormMethod.Post, new { onsubmit = "return SubmitForm(this)" }))
+{
+    @Html.HiddenFor(model => model.Id)
+    <div class="form-group">
+        <label class="control-label">Số Xe</label>
+        @Html.EditorFor(model => model.SoXe, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+    <div class="form-group">
+        <label class="control-label">Hạn đăng kiểm</label>
+        @Html.EditorFor(model => model.HanDangKiem, new { htmlAttributes = new { @class = "form-control datefield" } })
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Cập nhật" class="btn btn-primary" />
+    </div>
+}
+<script>
+    $(document).ready(function () {
+        $(".datefield").datepicker({
+            dateFormat: 'dd/mm/yy'
+        });
+    });
+</script>

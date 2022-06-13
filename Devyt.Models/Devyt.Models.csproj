@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{467A8B2E-20D0-428D-A67B-AE60B703D203}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Devyt.Models</RootNamespace>
+    <AssemblyName>Devyt.Models</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin_ChiNhanh.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_GetAllKho_Result.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_GetAllPhongBan_Result.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_GetAllTaiKhoan_Result.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_GetAllViTriKho_Result.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Kho.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_PhanQuyen.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_PhanQuyenController.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_PhongBan.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_TaiKhoan.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_ViTriKho.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc_BieuCuocChuan.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc_DiaDiem.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc_DonViTinh.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc_DonViVanTai.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc_GetAllBieuCuocChuan_Result.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc_GetAllTaiXeByChiNhanh_Result.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc_GetAllXeVanTai_Result.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc_KhachHang.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc_LoaiHang.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc_NhaCungCap.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc_NhaXuatNhapKhau.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc_TaiXe.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc_XeVanTai.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Devyt.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Devyt.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Devyt.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Devyt.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Devyt.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="NhapXuat_GetAllHangNhapByChiNhanh_Result.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NhapXuat_GetAllHangXuatByChiNhanh_Result.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NhapXuat_GetAllLoHangByChiNhanh_Result.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NhapXuat_GetAllLoHang_Result.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NhapXuat_HangNhap.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NhapXuat_HangXuat.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NhapXuat_LoHang.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NhapXuat_TonKho.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report_BaoCaoTonKho_Result.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VanTai_ChuyenDieuVan.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VanTai_GetAllChuyenDieuVanTheoChiNhanh_Result.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VanTai_GetAllKeHoachVanTaiTheoChiNhanh_Result.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VanTai_GetAllLenhVanChuyenTheoChiNhanh_Result.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VanTai_KeHoachVanTai.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VanTai_LenhVanChuyen.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\LoginViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="Devyt.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Devyt.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Devyt.edmx.diagram">
+      <DependentUpon>Devyt.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Devyt.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Devyt.edmx</DependentUpon>
+      <LastGenOutput>Devyt.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Devyt.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Devyt.edmx</DependentUpon>
+      <LastGenOutput>Devyt.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="eb48b816df6c444bae8c71b0187cb509" Name="Diagram1">
+        <EntityTypeShape EntityType="DevytModel.Admin_ChiNhanh" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevytModel.Admin_Kho" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevytModel.Admin_PhanQuyen" Width="1.5" PointX="0.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevytModel.Admin_PhanQuyenController" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevytModel.Admin_PhongBan" Width="1.5" PointX="7.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevytModel.Admin_TaiKhoan" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevytModel.Admin_ViTriKho" Width="1.5" PointX="5.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevytModel.DanhMuc_BieuCuocChuan" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevytModel.DanhMuc_DiaDiem" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevytModel.DanhMuc_DonViTinh" Width="1.5" PointX="9.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevytModel.DanhMuc_KhachHang" Width="1.5" PointX="9.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevytModel.DanhMuc_LoaiHang" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevytModel.DanhMuc_NhaCungCap" Width="1.5" PointX="5.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevytModel.DanhMuc_NhaXuatNhapKhau" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevytModel.DanhMuc_TaiXe" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevytModel.DanhMuc_XeVanTai" Width="1.5" PointX="11.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevytModel.NhapXuat_HangNhap" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevytModel.NhapXuat_HangXuat" Width="1.5" PointX="7.5" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevytModel.NhapXuat_LoHang" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevytModel.NhapXuat_TonKho" Width="1.5" PointX="11.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevytModel.VanTai_ChuyenDieuVan" Width="1.5" PointX="11.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevytModel.VanTai_KeHoachVanTai" Width="1.5" PointX="13.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevytModel.VanTai_LenhVanChuyen" Width="1.5" PointX="13.75" PointY="5.75" IsExpanded="true" />
+        <AssociationConnector Association="DevytModel.FK_Admin_Kho_Admin_ChiNhanh" ManuallyRouted="false" />
+        <AssociationConnector Association="DevytModel.FK_Admin_TaiKhoan_Admin_ChiNhanh" ManuallyRouted="false" />
+        <AssociationConnector Association="DevytModel.FK_Admin_ViTriKho_Admin_Kho" ManuallyRouted="false" />
+        <AssociationConnector Association="DevytModel.FK_Admin_TaiKhoan_Admin_PhanQuyen" ManuallyRouted="false" />
+        <AssociationConnector Association="DevytModel.FK_NhapXuat_LoHang_DanhMuc_NhaXuatNhapKhau" ManuallyRouted="false" />
+        <AssociationConnector Association="DevytModel.FK_NhapXuat_HangNhap_NhapXuat_LoHang" ManuallyRouted="false" />
+        <AssociationConnector Association="DevytModel.FK_NhapXuat_HangXuat_NhapXuat_HangNhap" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DevytModel.DanhMuc_DonViVanTai" Width="1.5" PointX="5.375" PointY="13.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
