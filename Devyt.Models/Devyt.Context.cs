@@ -176,5 +176,14 @@ namespace Devyt.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VanTai_GetAllLenhVanChuyenTheoChiNhanh_Result>("VanTai_GetAllLenhVanChuyenTheoChiNhanh", cnidParameter);
         }
+    
+        public virtual ObjectResult<VanTai_GetLenhVanChuyenTheoKeHoach_Result> VanTai_GetLenhVanChuyenTheoKeHoach(Nullable<int> kehoachid)
+        {
+            var kehoachidParameter = kehoachid.HasValue ?
+                new ObjectParameter("kehoachid", kehoachid) :
+                new ObjectParameter("kehoachid", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VanTai_GetLenhVanChuyenTheoKeHoach_Result>("VanTai_GetLenhVanChuyenTheoKeHoach", kehoachidParameter);
+        }
     }
 }

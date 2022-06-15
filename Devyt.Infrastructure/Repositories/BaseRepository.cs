@@ -3,6 +3,7 @@ using Devyt.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
@@ -50,6 +51,19 @@ namespace Devyt.Infrastructure.Repositories
             catch (Exception ex)
             {
                 return new ResultModel<T>(false, ex.Message, null);
+            }
+        }
+
+        public async Task<ResultModelList<T>> GetListPredicate(Expression<Func<T, bool>> predicate)
+        {
+            try
+            {
+                List<T> res = await _context.Set<T>().Where(predicate).ToListAsync();
+                return new ResultModelList<T>(true, "", res);
+            }
+            catch (Exception ex)
+            {
+                return new ResultModelList<T>(false, ex.Message, null);
             }
         }
 

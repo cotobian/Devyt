@@ -7,12 +7,12 @@ namespace Devyt.Infrastructure.Repositories
 {
     public class DanhMuc_DiaDiemRepository : BaseRepository<DanhMuc_DiaDiem>
     {
-        public override async Task<ResultModel<DanhMuc_DiaDiem>> Add(DanhMuc_DiaDiem PhongBan)
+        public override async Task<ResultModel<DanhMuc_DiaDiem>> Add(DanhMuc_DiaDiem hh)
         {
             try
             {
-                validateDoiTuong(PhongBan);
-                return await base.Add(PhongBan);
+                validateDoiTuong(hh);
+                return await base.Add(hh);
             }
             catch (ValidateException ex)
             {
@@ -24,12 +24,12 @@ namespace Devyt.Infrastructure.Repositories
             }
         }
 
-        public override async Task<ResultModel<DanhMuc_DiaDiem>> Update(DanhMuc_DiaDiem PhongBan)
+        public override async Task<ResultModel<DanhMuc_DiaDiem>> Update(DanhMuc_DiaDiem hh)
         {
             try
             {
-                validateDoiTuong(PhongBan);
-                return await base.Update(PhongBan);
+                validateDoiTuong(hh);
+                return await base.Update(hh);
             }
             catch (ValidateException ex)
             {
@@ -51,6 +51,10 @@ namespace Devyt.Infrastructure.Repositories
             {
                 throw new ValidateException("Tên địa điểm không thể dài hơn 50 ký tự!");
             }
+            //if(GetPredicate(c => c.TenDiaDiem.ToLower().Equals(diaDiem.TenDiaDiem.ToLower())) != null)
+            //{
+            //    throw new ValidateException("Địa điểm đã tồn tại!");
+            //}
         }
     }
 }

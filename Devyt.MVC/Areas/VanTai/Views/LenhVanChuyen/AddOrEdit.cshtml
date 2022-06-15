@@ -1,0 +1,21 @@
+﻿@model Devyt.Models.VanTai_LenhVanChuyen
+@{
+    Layout = null;
+}
+
+@using (Html.BeginForm("AddOrEdit", "LenhVanChuyen", FormMethod.Post, new { onsubmit = "return SubmitForm(this)" }))
+{
+    @Html.HiddenFor(model => model.KeHoachVanTaiId)
+    @Html.HiddenFor(model => model.ChiNhanhId)
+    <div class="form-group">
+        <label class="control-label">Loại Cont</label>
+        @Html.DropDownListFor(model => model.DonViTinhId, new SelectList(ViewBag.DonViTinhList, "Id", "TenDonViTinh"), "-- Chọn loại cont --", new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label class="control-label">Số lượng</label>
+        <input type="number" min="0" class="form-control" name="soluong" id="soluong" for="soluong" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Cập nhật" class="btn btn-primary" />
+    </div>
+}

@@ -1,22 +1,21 @@
 ﻿
 @{
-    ViewBag.Title = "Danh sách Đơn vị tính";
+    ViewBag.Title = "Danh sách Lệnh vận tải";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="card">
     <div class="card-header">
-        <h3>Danh sách Đơn vị tính</h3>
+        <h3>Danh sách Lệnh vận tải</h3>
     </div>
     <div class="card-body">
         <div class="container-fluid">
-            <a class="btn btn-success" style="margin-bottom:10px;" onclick="PopupForm('@Url.Action("AddOrEdit","DonViTinh")')"><i class="fa fa-plus"></i> Thêm mới</a>
+            <a class="btn btn-success" style="margin-bottom:10px;" onclick="AddBtnClick()"><i class="fa fa-plus"></i> Thêm mới</a>
             <table id="truckTable" class="table table-striped table-bordered" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Đơn vị tính</th>
-                        <th>Ghi chú</th>
-                        <th>Sửa</th>
+                        <th>Loại Container</th>
+                        <th>Trạng thái</th>
                         <th>Xóa</th>
                     </tr>
                 </thead>
@@ -24,19 +23,23 @@
         </div>
     </div>
 </div>
+
+
 @section scripts{
     <script>
         var Popup, dataTable;
+        const params = new URLSearchParams(window.location.search);
         $(document).ready(function () {
+
             dataTable = $("#truckTable").DataTable({
                 "ajax": {
-                    "url": "/DonViTinh/GetDonViTinh",
+                    "url": "/LenhVanChuyen/GetLenhVanChuyenTheoKeHoach?kehoachid=" + params.get('KeHoachVanTaiId'),
                     "type": "GET",
                     "datatype": "json",
                 },
                 "columns": [
                     { "data": "TenDonViTinh" },
-                    { "data": "GhiChu" },
+                    { "data": "TrangThaiText" },
                     {
                         "data": "Id", "render": function (data) {
                             return "<i class='fa fa-trash f-20 text-danger' onclick=Delete(" + data + ")></i>";
@@ -50,6 +53,10 @@
             });
         });
 
+        function AddBtnClick() {
+            PopupForm('@Url.Action("AddOrEdit", "LenhVanChuyen")/' + params.get('KeHoachVanTaiId'));
+        }
+
         function PopupForm(url) {
             var formDiv = $('<div/>');
             $.get(url)
@@ -58,7 +65,7 @@
                 Popup = formDiv.dialog({
                     autoOpen: true,
                     resizeable: false,
-                    title: 'Nhập thông tin đơn vị tính',
+                    title: 'Nhập thông tin lệnh vận chuyển',
                     height: 250,
                     width: 700,
                     close: function () {
@@ -69,8 +76,6 @@
         }
 
         function SubmitForm(form) {
-            $.validator.unobtrusive.parse(form);
-            if ($(form).valid()) {
                 $.ajax({
                     type: "POST",
                     url: form.action,
@@ -94,15 +99,14 @@
                         }
                     }
                 });
-            }
             return false;
         }
 
         function Delete(id) {
-            if (confirm("Bạn có muốn xóa đơn vị tính này không?")) {
+            if (confirm("Bạn có muốn xóa lệnh vận chuyển này không?")) {
                 $.ajax({
                     type: "POST",
-                    url: '@Url.Action("Delete", "DonViTinh")/' + id,
+                    url: '@Url.Action("Delete", "LenhVanChuyen")/' + id,
                     success: function (data) {
                         if (data.success) {
                             dataTable.ajax.reload();

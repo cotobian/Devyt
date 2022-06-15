@@ -167,11 +167,12 @@
     <Compile Include="Areas\Admin\Controllers\TaiKhoanController.cs" />
     <Compile Include="Areas\Admin\Controllers\ViTriKhoController.cs" />
     <Compile Include="Areas\DanhMuc\Controllers\BieuCuocChuanController.cs" />
+    <Compile Include="Areas\DanhMuc\Controllers\DiaDiemController.cs" />
     <Compile Include="Areas\DanhMuc\Controllers\DonViTinhController.cs" />
     <Compile Include="Areas\DanhMuc\Controllers\DonViVanTaiController.cs" />
     <Compile Include="Areas\DanhMuc\Controllers\KhachHangController.cs" />
+    <Compile Include="Areas\DanhMuc\Controllers\LoaiHangController.cs" />
     <Compile Include="Areas\DanhMuc\Controllers\NhaXuatNhapKhauController.cs" />
-    <Compile Include="Areas\DanhMuc\Controllers\RomoocController.cs" />
     <Compile Include="Areas\DanhMuc\Controllers\TaiXeController.cs" />
     <Compile Include="Areas\DanhMuc\Controllers\XeVanTaiController.cs" />
     <Compile Include="Areas\DanhMuc\DanhMucAreaRegistration.cs" />
@@ -256,7 +257,6 @@
     <Content Include="Areas\NhapXuat\Views\HangXuat\AddOrEdit.cshtml" />
     <Content Include="Areas\NhapXuat\Views\HangXuat\TaoHangXuat.cshtml" />
     <Content Include="Areas\Report\Views\web.config" />
-    <Content Include="Areas\VanTai\Views\KeHoachVanTai\TaoLenhDieuVan.cshtml" />
     <Content Include="Areas\VanTai\Views\KeHoachVanTai\Index.cshtml" />
     <Content Include="Areas\VanTai\Views\_ViewStart.cshtml" />
     <Content Include="Areas\VanTai\Views\Shared\_Layout.cshtml" />
@@ -270,6 +270,12 @@
     <Content Include="Areas\Report\Views\BaoCaoKho\BaoCaoNhapXuat.cshtml" />
     <Content Include="Areas\DanhMuc\Views\DonViVanTai\Index.cshtml" />
     <Content Include="Areas\VanTai\Views\KeHoachVanTai\TaoKeHoachVanTai.cshtml" />
+    <Content Include="Areas\DanhMuc\Views\DiaDiem\Index.cshtml" />
+    <Content Include="Areas\DanhMuc\Views\DiaDiem\AddOrEdit.cshtml" />
+    <Content Include="Areas\DanhMuc\Views\LoaiHang\Index.cshtml" />
+    <Content Include="Areas\DanhMuc\Views\LoaiHang\AddOrEdit.cshtml" />
+    <Content Include="Areas\VanTai\Views\LenhVanChuyen\Index.cshtml" />
+    <Content Include="Areas\VanTai\Views\LenhVanChuyen\AddOrEdit.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\chart-area-demo.js" />
     <Content Include="Scripts\chart-pie-demo.js" />
@@ -315,7 +321,6 @@
     <Folder Include="Areas\Report\Models\" />
     <Folder Include="Areas\Report\Views\Shared\" />
     <Folder Include="Areas\VanTai\Models\" />
-    <Folder Include="Areas\VanTai\Views\LenhVanChuyen\" />
     <Folder Include="Enums\" />
     <Folder Include="Models\" />
   </ItemGroup>

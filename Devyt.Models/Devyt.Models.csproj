@@ -178,6 +178,9 @@
     <Compile Include="VanTai_GetAllLenhVanChuyenTheoChiNhanh_Result.cs">
       <DependentUpon>Devyt.tt</DependentUpon>
     </Compile>
+    <Compile Include="VanTai_GetLenhVanChuyenTheoKeHoach_Result.cs">
+      <DependentUpon>Devyt.tt</DependentUpon>
+    </Compile>
     <Compile Include="VanTai_KeHoachVanTai.cs">
       <DependentUpon>Devyt.tt</DependentUpon>
     </Compile>

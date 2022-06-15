@@ -404,6 +404,9 @@
         <Function Name="VanTai_GetAllLenhVanChuyenTheoChiNhanh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="cnid" Type="int" Mode="In" />
         </Function>
+        <Function Name="VanTai_GetLenhVanChuyenTheoKeHoach" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="kehoachid" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="DevytModelStoreContainer">
           <EntitySet Name="Admin_ChiNhanh" EntityType="Self.Admin_ChiNhanh" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Admin_Kho" EntityType="Self.Admin_Kho" Schema="dbo" store:Type="Tables" />
@@ -911,13 +914,16 @@
           </FunctionImport>
           <EntitySet Name="DanhMuc_DonViVanTai" EntityType="DevytModel.DanhMuc_DonViVanTai" />
           <FunctionImport Name="VanTai_GetAllChuyenDieuVanTheoChiNhanh" ReturnType="Collection(DevytModel.VanTai_GetAllChuyenDieuVanTheoChiNhanh_Result)">
-            <Parameter Name="cnid" Mode="In" Type="Int32" />
+          <Parameter Name="cnid" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="VanTai_GetAllKeHoachVanTaiTheoChiNhanh" ReturnType="Collection(DevytModel.VanTai_GetAllKeHoachVanTaiTheoChiNhanh_Result)">
-            <Parameter Name="cnid" Mode="In" Type="Int32" />
+          <Parameter Name="cnid" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="VanTai_GetAllLenhVanChuyenTheoChiNhanh" ReturnType="Collection(DevytModel.VanTai_GetAllLenhVanChuyenTheoChiNhanh_Result)">
-            <Parameter Name="cnid" Mode="In" Type="Int32" />
+          <Parameter Name="cnid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="VanTai_GetLenhVanChuyenTheoKeHoach" ReturnType="Collection(DevytModel.VanTai_GetLenhVanChuyenTheoKeHoach_Result)">
+            <Parameter Name="kehoachid" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Admin_GetAllKho_Result">
@@ -1135,6 +1141,15 @@
           <Property Type="Int32" Name="DonViTinhId" Nullable="true" />
           <Property Type="Int32" Name="TrangThai" Nullable="false" />
           <Property Type="Int32" Name="ChiNhanhId" Nullable="true" />
+          <Property Type="String" Name="TrangThaiText" Nullable="false" MaxLength="8" />
+        </ComplexType>
+        <ComplexType Name="VanTai_GetLenhVanChuyenTheoKeHoach_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="KeHoachVanTaiId" Nullable="false" />
+          <Property Type="Int32" Name="DonViTinhId" Nullable="true" />
+          <Property Type="Int32" Name="TrangThai" Nullable="false" />
+          <Property Type="Int32" Name="ChiNhanhId" Nullable="true" />
+          <Property Type="String" Name="TenDonViTinh" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="TrangThaiText" Nullable="false" MaxLength="8" />
         </ComplexType>
       </Schema>
@@ -1712,6 +1727,19 @@
                 <ScalarProperty Name="DonViTinhId" ColumnName="DonViTinhId" />
                 <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
                 <ScalarProperty Name="ChiNhanhId" ColumnName="ChiNhanhId" />
+                <ScalarProperty Name="TrangThaiText" ColumnName="TrangThaiText" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="VanTai_GetLenhVanChuyenTheoKeHoach" FunctionName="DevytModel.Store.VanTai_GetLenhVanChuyenTheoKeHoach">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DevytModel.VanTai_GetLenhVanChuyenTheoKeHoach_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="KeHoachVanTaiId" ColumnName="KeHoachVanTaiId" />
+                <ScalarProperty Name="DonViTinhId" ColumnName="DonViTinhId" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+                <ScalarProperty Name="ChiNhanhId" ColumnName="ChiNhanhId" />
+                <ScalarProperty Name="TenDonViTinh" ColumnName="TenDonViTinh" />
                 <ScalarProperty Name="TrangThaiText" ColumnName="TrangThaiText" />
               </ComplexTypeMapping>
             </ResultMapping>
